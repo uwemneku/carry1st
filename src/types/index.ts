@@ -1,3 +1,7 @@
+export interface PageProps<T extends {}> {
+  params: T;
+}
+
 export type IProduct = {
   id: number;
   name: string;

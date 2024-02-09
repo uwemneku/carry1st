@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Baseinput from "@/components/Input";
+import tw from "tailwind-styled-components";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <p className="text-white">djfjfjjf</p>
-        {children}
+      <body className={`${inter.className} bg-white`}>
+        <header className="border-b-2 sticky top-0 bg-white z-50">
+          <Container className="py-3">
+            <Link href={"/"} className="font-bold">
+              E-commerce
+            </Link>
+          </Container>
+        </header>
+        <Container className="py-5">{children}</Container>
       </body>
     </html>
   );
 }
+
+const Container = tw.div`mx-auto max-w-7xl md:px-14 px-8`;
