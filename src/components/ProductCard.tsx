@@ -1,6 +1,10 @@
+import { IProduct } from "@/types";
 import React from "react";
 
-function ProductCard() {
+interface Props
+  extends Pick<IProduct, "id" | "name" | "price" | "imageLocation"> {}
+
+function ProductCard({ id, imageLocation, name, price }: Props) {
   return <div>ProductCard</div>;
 }
 
