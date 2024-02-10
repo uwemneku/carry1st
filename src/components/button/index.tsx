@@ -23,6 +23,6 @@ function Button({ variants = "filled", className = "", ...props }: Props) {
   );
 }
 
-const Container = tw.button`block active:scale-[0.98] transition-transform py-3`;
+const Container = tw.button`block active:scale-[0.98] transition-transform py-3 w-full`;
 
 export default Button;

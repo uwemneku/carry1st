@@ -8,7 +8,7 @@ async function Home() {
 
   return (
     <section>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
+      <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-6">
         {products.map((i) => (
           <li key={i.id}>
             <Link href={`/products/${i.id}`}>

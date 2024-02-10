@@ -1,6 +1,5 @@
 import { MotionDiv } from "@/components/util/motion";
-import AddToCartButton from "@/features/cart/ui/AddToCartButton";
-import BuyButton from "@/features/cart/ui/BuyButton";
+import ProductButtons from "@/features/cart/ui/ProductButtons";
 import getAllProduct from "@/services/getProduct";
 import getProductById from "@/services/getProductById";
 import { PageProps } from "@/types";
@@ -26,7 +25,7 @@ async function Page({ params }: PageProps<{ id: string }>) {
     <MotionDiv className="flex flex-col md:flex-row gap-10">
       <MotionDiv
         layoutId={params?.id?.toString()}
-        className="bg-[#f7f7f7] relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
+        className="bg-white rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
         layout="preserve-aspect"
       >
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">
@@ -35,6 +34,7 @@ async function Page({ params }: PageProps<{ id: string }>) {
             src={product?.imageLocation}
             fill
             className="object-contain object-center"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </MotionDiv>
       </MotionDiv>
@@ -42,22 +42,19 @@ async function Page({ params }: PageProps<{ id: string }>) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", staggerChildren: 0.5 }}
-        className="flex flex-col gap-8 flex-[0.5] lg:py-5"
+        className="flex flex-col gap-8 flex-[0.5] md:py-5 bg-white rounded-md p-4"
       >
         <div className="">
           <h1 className="md:text-4xl text-2xl font-medium">{product?.name}</h1>
-          <p className="font-medium text-lg text-gray-500">
+          <p className="font-medium text-lg text-zinc-600">
             {product?.currencySymbol}
             {product?.price}
           </p>
         </div>
         <div className="flex-[1]" />
-        <div className="gap-2 flex flex-col">
-          <AddToCartButton {...product} />
-          <BuyButton id={params?.id} />
-        </div>
+        <ProductButtons {...product} />
         <div>
-          <p>{product?.description}</p>
+          <p className="text-zinc-600">{product?.description}</p>
         </div>
       </MotionDiv>
     </MotionDiv>

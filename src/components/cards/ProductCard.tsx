@@ -18,7 +18,7 @@ function ProductCard({
   id,
 }: Props) {
   return (
-    <MotionDiv className="grid gap-2 ">
+    <MotionDiv className="grid bg-white rounded-md overflow-hidden border-[1px]">
       <Container>
         <MotionDiv
           layoutId={id?.toString()}
@@ -30,11 +30,12 @@ function ProductCard({
             src={imageLocation}
             fill
             className="object-contain object-center"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </MotionDiv>
       </Container>
-      <div className="grid gap-3 font-normal text-xs text-gray-700">
-        <h2 className="font-medium">{name}</h2>
+      <div className="grid gap-1 font-normal text-xs text-gray-700 p-2">
+        <h2 className="font-semibold">{name}</h2>
         <p>
           {currencySymbol}
           {price}
@@ -44,6 +45,6 @@ function ProductCard({
   );
 }
 
-const Container = tw.div`max-w-[390px] transition-all duration-500 hover:drop-shadow-sm hover:scale-[1.05]`;
+const Container = tw.div`max-w-[390px] transition-all duration-500 hover:drop-shadow-sm hover:scale-[1.05] border-b-[1px]`;
 
 export default React.memo(ProductCard);
