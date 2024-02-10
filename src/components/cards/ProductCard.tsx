@@ -18,13 +18,13 @@ function ProductCard({
   id,
 }: Props) {
   return (
-    <MotionDiv className="grid bg-white rounded-md overflow-hidden border-[1px]">
-      <Container>
-        <MotionDiv
-          layoutId={id?.toString()}
-          className="relative min-h-40 md:min-h-60"
-          layout="preserve-aspect"
-        >
+    <MotionDiv className="grid p-2 rounded-md border-2 max-w-[220px] ">
+      <MotionDiv
+        layoutId={id?.toString()}
+        className="relative rounded-md bg-[#f3f4f6] p-6"
+        layout="preserve-aspect"
+      >
+        <ImageContainer>
           <Image
             alt={name}
             src={imageLocation}
@@ -32,11 +32,11 @@ function ProductCard({
             className="object-contain object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-        </MotionDiv>
-      </Container>
-      <div className="grid gap-1 font-normal text-xs text-gray-700 p-2">
-        <h2 className="font-semibold">{name}</h2>
-        <p>
+        </ImageContainer>
+      </MotionDiv>
+      <div className="text-gray-700 p-2 md:gap-4 grid">
+        <h2 className="text-sm">{name}</h2>
+        <p className="font-semibold text-lg leading-6">
           {currencySymbol}
           {price}
         </p>
@@ -45,6 +45,6 @@ function ProductCard({
   );
 }
 
-const Container = tw.div`max-w-[390px] transition-all duration-500 hover:drop-shadow-sm hover:scale-[1.05] border-b-[1px]`;
+const ImageContainer = tw.div`transition-all duration-500 relative w-full h-full min-h-24 md:min-h-32 `;
 
 export default React.memo(ProductCard);

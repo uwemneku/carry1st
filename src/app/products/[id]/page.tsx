@@ -1,5 +1,5 @@
 import { MotionDiv } from "@/components/util/motion";
-import ProductButtons from "@/features/cart/ui/ProductButtons";
+import ProductButtons from "@/features/cart/ProductButtons";
 import getAllProduct from "@/services/getProduct";
 import getProductById from "@/services/getProductById";
 import { PageProps } from "@/types";
@@ -11,7 +11,6 @@ export const dynamicParams = true;
 export async function generateStaticParams() {
   const allProduct = await getAllProduct();
   const initialProducts = allProduct.slice(0, 5);
-  console.log(initialProducts);
 
   return initialProducts.map((product) => ({
     id: product.id?.toString(),
@@ -22,10 +21,10 @@ async function Page({ params }: PageProps<{ id: string }>) {
   const product = await getProductById(params?.id);
 
   return (
-    <MotionDiv className="flex flex-col md:flex-row gap-10">
+    <MotionDiv className="flex flex-col md:flex-row gap-2 md:gap-10">
       <MotionDiv
         layoutId={params?.id?.toString()}
-        className="bg-white rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
+        className="bg-[#f3f4f6]  rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
         layout="preserve-aspect"
       >
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">
@@ -50,12 +49,12 @@ async function Page({ params }: PageProps<{ id: string }>) {
             {product?.currencySymbol}
             {product?.price}
           </p>
+          <div className="mt-4 md:mt-8">
+            <p className="text-zinc-600">{product?.description}</p>
+          </div>
         </div>
         <div className="flex-[1]" />
         <ProductButtons {...product} />
-        <div>
-          <p className="text-zinc-600">{product?.description}</p>
-        </div>
       </MotionDiv>
     </MotionDiv>
   );

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useCartContext } from "../context/CartContextProvider";
+import { useCartContext } from "../../components/context/CartContextProvider";
 import { IProduct } from "@/types";
 import Button from "@/components/button";
 import { Drawer } from "vaul";

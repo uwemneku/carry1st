@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import tw from "tailwind-styled-components";
 import Link from "next/link";
-import CartIcon from "@/features/cart/ui/CartIcon";
-import CartContextProvider from "@/features/cart/context/CartContextProvider";
-import DrawerContext from "@/features/cart/context/DrawerContext";
+import CartIcon from "@/features/cart/CartIcon";
+import CartContextProvider from "@/components/context/CartContextProvider";
+import DrawerContext from "@/components/context/DrawerContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,12 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[#f3f4f6] flex flex-col min-h-screen`}
+        className={`${inter.className} bg-white flex flex-col min-h-screen`}
       >
         <CartContextProvider>
           <DrawerContext>
             <header className="border-b-2 sticky top-0 bg-white z-20">
-              <Container className="lg:py-4 py-2 flex justify-between items-center">
+              <Container className="lg:py-4 py-3 flex justify-between items-center">
                 <Link href={"/"} className="font-semibold text-lg md:text-xl">
                   E-commerce
                 </Link>
