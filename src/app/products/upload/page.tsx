@@ -1,7 +1,11 @@
 import React from "react";
 
-function Page() {
-  return <div>page</div>;
+function page() {
+  return (
+    <div>
+      <p className="bg-black">hello</p>
+    </div>
+  );
 }
 
-export default Page;
+export default page;

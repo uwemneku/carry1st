@@ -2,7 +2,7 @@ import { IProduct } from "@/types";
 import Image from "next/image";
 import React from "react";
 import tw from "tailwind-styled-components";
-import { MotionDiv } from "./util/motion";
+import { MotionDiv } from "../util/motion";
 
 interface Props
   extends Pick<
@@ -22,7 +22,7 @@ function ProductCard({
       <Container>
         <MotionDiv
           layoutId={id?.toString()}
-          className="relative min-h-40 md:min-h-60 bg-[#f7f7f7] hover:bg-white"
+          className="relative min-h-40 md:min-h-60"
           layout="preserve-aspect"
         >
           <Image
@@ -33,8 +33,8 @@ function ProductCard({
           />
         </MotionDiv>
       </Container>
-      <div className="flex justify-between font-normal text-sm text-gray-700">
-        <h2>{name}</h2>
+      <div className="grid gap-3 font-normal text-xs text-gray-700">
+        <h2 className="font-medium">{name}</h2>
         <p>
           {currencySymbol}
           {price}
@@ -44,6 +44,6 @@ function ProductCard({
   );
 }
 
-const Container = tw.div`rounded-md max-w-[390px] transition-all duration-500 hover:drop-shadow-sm hover:scale-[1.005]`;
+const Container = tw.div`max-w-[390px] transition-all duration-500 hover:drop-shadow-sm hover:scale-[1.05]`;
 
 export default React.memo(ProductCard);

@@ -1,13 +1,10 @@
-import ProductCard from "@/components/ProductCard";
-import getProduct from "@/services/product/getProduct";
+import ProductCard from "@/components/cards/ProductCard";
+import getProduct from "@/services/getProduct";
 import Link from "next/link";
 import React from "react";
 
 async function Home() {
-  const apiResponse = await getProduct();
-  const products = apiResponse?.products || [];
-
-  console.log({ products });
+  const products = (await getProduct()) || [];
 
   return (
     <section>
