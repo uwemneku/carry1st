@@ -7,8 +7,8 @@ import { Drawer } from "vaul";
 function CartIcon() {
   const { items } = useCartContext();
   return (
-    <Drawer.Trigger asChild>
-      <MotionDiv role="button" className="relative">
+    <Drawer.Trigger asChild className="relative">
+      <MotionDiv className="relative">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1.5em"

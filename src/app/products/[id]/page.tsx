@@ -1,6 +1,6 @@
 import { MotionDiv } from "@/components/util/motion";
 import ProductButtons from "@/features/cart/ProductButtons";
-import getAllProduct from "@/services/getProduct";
+import getAllProduct from "@/services/getAllProduct";
 import getProductById from "@/services/getProductById";
 import { PageProps } from "@/types";
 import Image from "next/image";
@@ -24,7 +24,7 @@ async function Page({ params }: PageProps<{ id: string }>) {
     <MotionDiv className="flex flex-col md:flex-row gap-2 md:gap-10">
       <MotionDiv
         layoutId={params?.id?.toString()}
-        className="bg-[#f3f4f6]  rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
+        className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
         layout="preserve-aspect"
       >
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">

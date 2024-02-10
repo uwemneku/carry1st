@@ -1,10 +1,10 @@
 import ProductCard from "@/components/cards/ProductCard";
-import getProduct from "@/services/getProduct";
+import getAllProduct from "@/services/getAllProduct";
 import Link from "next/link";
 import React from "react";
 
 async function Home() {
-  const products = (await getProduct()) || [];
+  const products = (await getAllProduct()) || [];
 
   return (
     <section>

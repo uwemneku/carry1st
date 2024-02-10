@@ -1,6 +1,8 @@
 import { IProduct } from "@/types";
+import { delay } from "./util";
 
-async function getProduct() {
+async function getAllProduct() {
+  // await delay(10000) Add to simulate loading state;
   const res = await fetch(
     "https://my-json-server.typicode.com/carry1stdeveloper/mock-product-api/productBundles"
   );
@@ -11,4 +13,4 @@ async function getProduct() {
   return products;
 }
 
-export default getProduct;
+export default getAllProduct;
