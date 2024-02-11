@@ -15,6 +15,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
+    "react-query": "^3.39.3",
     "tailwind-merge": "^2.2.1",
     "tailwind-styled-components": "^2.2.0",
     "vaul": "^0.9.0",

@@ -1,7 +1,13 @@
 import ProductCard from "@/components/cards/ProductCard";
 import getAllProduct from "@/services/getAllProduct";
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Carry1st Shop",
+  description: "Carry1st Store",
+};
 
 async function Home() {
   const products = (await getAllProduct()) || [];

@@ -1,6 +1,6 @@
 "use client";
 
-import { HtmlHTMLAttributes, forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface Props
@@ -11,10 +11,11 @@ interface Props
   isError?: boolean;
   helperText?: string;
   label?: string;
+  leftAdornment?: JSX.Element;
 }
 
 const BaseInput = forwardRef<HTMLInputElement, Props>(function Input(
-  { label, isError, helperText, ...props },
+  { label, isError, helperText, leftAdornment, ...props },
   ref
 ) {
   return (
@@ -23,11 +24,16 @@ const BaseInput = forwardRef<HTMLInputElement, Props>(function Input(
       <div>
         <div
           className={twMerge(
-            "border-2 rounded-md p-2",
+            "border-2 rounded-md p-2 flex flex-col gap-2 items-center",
             isError ? "border-red-600" : "border-zinc-500"
           )}
         >
-          <input className="block w-full outline-0" ref={ref} {...props} />
+          {leftAdornment}
+          <input
+            className="block w-full outline-0 flex-1"
+            ref={ref}
+            {...props}
+          />
         </div>
         {helperText && (
           <p className="px-[0.5px] mt-1 font-medium text-sm">{helperText}</p>

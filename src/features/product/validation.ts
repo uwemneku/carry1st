@@ -6,8 +6,6 @@ export const productFormValidation = object().shape({
   price: number()
     .required("This field is required")
     .typeError("This field should be a number"),
-  currencyCode: string().required("This field is required"),
-  currencySymbol: string().required("This field is required"),
   quantity: number()
     .required("This field is required")
     .typeError("This field should be a number"),
