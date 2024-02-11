@@ -1,7 +1,7 @@
 "use client";
 
 import { MotionDiv } from "@/components/util/motion";
-import { useCartContext } from "../../components/context/CartContextProvider";
+import { useCartContext } from "../../lib/context/CartContextProvider";
 import { Drawer } from "vaul";
 
 function CartIcon() {

@@ -4,8 +4,8 @@ import "./globals.css";
 import tw from "tailwind-styled-components";
 import Link from "next/link";
 import CartIcon from "@/features/cart/CartIcon";
-import CartContextProvider from "@/components/context/CartContextProvider";
-import DrawerContext from "@/components/context/DrawerContext";
+import CartContextProvider from "@/lib/context/CartContextProvider";
+import DrawerContext from "@/lib/context/DrawerContext";
 import PlusIcon from "@/features/product/PlusIcon";
 import { NextResponse } from "next/server";
 

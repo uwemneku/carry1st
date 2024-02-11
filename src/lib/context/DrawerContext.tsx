@@ -9,7 +9,8 @@ import CartItemCard from "@/components/cards/CartItemCard";
 export default function DrawerContext({ children }: PropsWithChildren) {
   const { items, deleteItem } = useCartContext();
   const handleDeleteItem = (id: number) => () => deleteItem(id);
-  const isEmpty = items.length === 0;
+
+  const isCartEmpty = items.length === 0;
   const totalCost = items.reduce((prev, curr) => prev + curr.price, 0);
   const currency = items?.[0]?.currencySymbol || "";
   return (
@@ -24,7 +25,7 @@ export default function DrawerContext({ children }: PropsWithChildren) {
               <Drawer.Title className="font-medium mb-4 text-center text-xl">
                 My Cart
               </Drawer.Title>
-              {isEmpty ? (
+              {isCartEmpty ? (
                 <>
                   <div className="flex-1 flex justify-center items-center">
                     <p>Your shopping cart is empty</p>
