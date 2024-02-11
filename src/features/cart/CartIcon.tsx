@@ -7,7 +7,7 @@ import { Drawer } from "vaul";
 function CartIcon() {
   const { items } = useCartContext();
   return (
-    <Drawer.Trigger asChild className="relative">
+    <Drawer.Trigger role="button" asChild className="relative group">
       <MotionDiv className="relative">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +25,18 @@ function CartIcon() {
             <span>{items.length}</span>
             <MotionDiv
               initial={{ opacity: 1, scale: 1 }}
+              // TODO: fix animation bug on safari
               animate={{ opacity: 0, scale: 1.3 }}
               key={items?.length?.toString()}
               className="absolute  h-full w-full bg-black/50 animate-ping rounded-full"
             />
           </div>
         )}
+        <MotionDiv className="absolute -bottom-8 text-center hidden group-hover:block">
+          <p className="text-xs font-semibold p-1 px-2 rounded-md bg-black text-white">
+            Cart
+          </p>
+        </MotionDiv>
       </MotionDiv>
     </Drawer.Trigger>
   );

@@ -6,6 +6,8 @@ import Link from "next/link";
 import CartIcon from "@/features/cart/CartIcon";
 import CartContextProvider from "@/components/context/CartContextProvider";
 import DrawerContext from "@/components/context/DrawerContext";
+import PlusIcon from "@/features/product/PlusIcon";
+import { NextResponse } from "next/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  ...p
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -26,12 +29,15 @@ export default function RootLayout({
       >
         <CartContextProvider>
           <DrawerContext>
-            <header className="border-b-2 sticky top-0 bg-white z-20">
+            <header className="border-b-2 sticky top-0 bg-white z-30">
               <Container className="lg:py-4 py-3 flex justify-between items-center">
                 <Link href={"/"} className="font-semibold text-lg md:text-xl">
                   E-commerce
                 </Link>
-                <CartIcon />
+                <div className="flex items-center gap-6">
+                  <PlusIcon />
+                  <CartIcon />
+                </div>
               </Container>
             </header>
             <Container className="py-5 relative w-full flex-1">

@@ -9,8 +9,8 @@ async function Home() {
   return (
     <section>
       <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-6 items-center">
-        {products.map((i) => (
-          <li key={i.id}>
+        {products.map((i, index) => (
+          <li key={i.id} style={{ zIndex: products.length - index }}>
             <Link href={`/products/${i.id}`}>
               <ProductCard
                 id={i.id}

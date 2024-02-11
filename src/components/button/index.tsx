@@ -3,7 +3,11 @@ import React, { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 import tw from "tailwind-styled-components";
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   /**@default filled */
   variants?: "filled" | "outline";
 }

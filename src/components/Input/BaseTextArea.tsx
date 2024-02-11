@@ -1,19 +1,19 @@
 "use client";
 
-import { HtmlHTMLAttributes, forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface Props
   extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
   > {
   isError?: boolean;
   helperText?: string;
   label?: string;
 }
 
-const BaseInput = forwardRef<HTMLInputElement, Props>(function Input(
+const BaseTextArea = forwardRef<HTMLTextAreaElement, Props>(function Input(
   { label, isError, helperText, ...props },
   ref
 ) {
@@ -27,7 +27,7 @@ const BaseInput = forwardRef<HTMLInputElement, Props>(function Input(
             isError ? "border-red-600" : "border-zinc-500"
           )}
         >
-          <input className="block w-full outline-0" ref={ref} {...props} />
+          <textarea className="block w-full outline-0" ref={ref} {...props} />
         </div>
         {helperText && (
           <p className="px-[0.5px] mt-1 font-medium text-sm">{helperText}</p>
@@ -37,4 +37,4 @@ const BaseInput = forwardRef<HTMLInputElement, Props>(function Input(
   );
 });
 
-export default BaseInput;
+export default BaseTextArea;

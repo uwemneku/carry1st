@@ -6,16 +6,17 @@ import { PageProps } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export const dynamicParams = true;
+// Comment this line out for ISSG
 
-export async function generateStaticParams() {
-  const allProduct = await getAllProduct();
-  const initialProducts = allProduct.slice(0, 5);
+// export const dynamicParams = true;
+// export async function generateStaticParams() {
+//   const allProduct = await getAllProduct();
+//   const initialProducts = allProduct.slice(0, 5);
 
-  return initialProducts.map((product) => ({
-    id: product.id?.toString(),
-  }));
-}
+//   return initialProducts.map((product) => ({
+//     id: product.id?.toString(),
+//   }));
+// }
 
 async function Page({ params }: PageProps<{ id: string }>) {
   const product = await getProductById(params?.id);
@@ -24,7 +25,7 @@ async function Page({ params }: PageProps<{ id: string }>) {
     <MotionDiv className="flex flex-col md:flex-row gap-2 md:gap-10">
       <MotionDiv
         layoutId={params?.id?.toString()}
-        className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group"
+        className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group z-10"
         layout="preserve-aspect"
       >
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">
