@@ -3,34 +3,27 @@ import ProductButtons from "@/features/cart/ProductButtons";
 import getAllProduct from "@/services/getAllProduct";
 import getProductById from "@/services/getProductById";
 import { PageProps } from "@/types";
+import { headers } from "next/headers";
 import Image from "next/image";
 import React from "react";
 
 type Props = PageProps<{ id: string }>;
 
-export const dynamicParams = true;
-
 export async function generateStaticParams() {
   const allProduct = await getAllProduct();
   const initialProducts = allProduct.slice(0, 5); //Generate only the first 5 at build time
-
   return initialProducts.map((product) => ({
     id: product.id?.toString(),
   }));
 }
 
-// export async function generateMetadata({ params }: Props) {
-//   const product = await getProductById(params?.id);
-//   return {
-//     title: `${product.name} | Carry1st Store`,
-//     description: `${product.description}`,
-//     // openGraph: {
-//     //   title: `${product.name} | Carry1st Store`,
-//     //   description: `${product.description}`,
-//     //   images: product.imageLocation ? [product.imageLocation] : [],
-//     // },
-//   };
-// }
+export async function generateMetadata({ params }: Props) {
+  const product = await getProductById(params?.id);
+  return {
+    title: `${product.name} | Carry1st Store`,
+    description: `${product.description}`,
+  };
+}
 
 async function Page({ params }: Props) {
   const product = await getProductById(params?.id);
