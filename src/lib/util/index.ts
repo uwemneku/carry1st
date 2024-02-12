@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 export const delay = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
+/**this redirects to a 404 error page when a response has a status of 404 */
 export const handleResponseError = (res: Response) => {
   const { status, ok } = res;
   if (!ok) {

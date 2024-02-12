@@ -4,7 +4,11 @@ import { IProduct } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-interface Props extends IProduct {
+interface Props
+  extends Pick<
+    IProduct,
+    "imageLocation" | "name" | "currencySymbol" | "price"
+  > {
   onDelete(): void;
 }
 

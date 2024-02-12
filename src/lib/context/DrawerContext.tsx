@@ -27,7 +27,10 @@ export default function DrawerContext({ children }: PropsWithChildren) {
               </Drawer.Title>
               {isCartEmpty ? (
                 <>
-                  <div className="flex-1 flex justify-center items-center">
+                  <div
+                    className="flex-1 flex justify-center items
+                  -center"
+                  >
                     <p>Your shopping cart is empty</p>
                   </div>
                   <Drawer.Close className="p-2 bg-black text-white">
@@ -38,7 +41,7 @@ export default function DrawerContext({ children }: PropsWithChildren) {
                 <>
                   <ul className="grid gap-6 pb-12 max-h-[40vh] overflow-y-auto">
                     {items.map((product) => (
-                      <li key={product.id}>
+                      <li key={product.id} className="cart-item">
                         <CartItemCard
                           {...product}
                           onDelete={handleDeleteItem(product.id)}

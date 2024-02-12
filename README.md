@@ -1,4 +1,14 @@
 This is a simple E-commerce app built with Next js
+<br />
+
+- [Getting Started](#getting-started)
+  - [Clone this repository](#clone-this-repository)
+  - [Install dependencies](#install-dependencies)
+  - [Create an .env.local](#create-an-envlocal)
+  - [Start the development server](#start-the-development-server)
+  - [Running unit test](#running-unit-test)
+- [Folder structure](#folder-structure)
+- [Deploying](#deploying)
 
 ## Getting Started
 
@@ -32,6 +42,15 @@ yarn dev
 
 ```
 
+#### Running unit test
+
+```bash
+yarn test
+# or
+yarn test
+
+```
+
 ## Folder structure
 
 ```java
@@ -47,8 +66,4 @@ yarn dev
 
 ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploying
