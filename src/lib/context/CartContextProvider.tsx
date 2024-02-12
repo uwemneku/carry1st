@@ -1,4 +1,5 @@
 "use client";
+
 import { IProduct } from "@/types";
 import React, {
   PropsWithChildren,

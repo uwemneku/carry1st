@@ -19,18 +19,18 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: Props) {
-  const product = await getProductById(params?.id);
-  return {
-    title: `${product.name} | Carry1st Store`,
-    description: `${product.description}`,
-    openGraph: {
-      title: `${product.name} | Carry1st Store`,
-      description: `${product.description}`,
-      images: product.imageLocation ? [product.imageLocation] : [],
-    },
-  };
-}
+// export async function generateMetadata({ params }: Props) {
+//   const product = await getProductById(params?.id);
+//   return {
+//     title: `${product.name} | Carry1st Store`,
+//     description: `${product.description}`,
+//     // openGraph: {
+//     //   title: `${product.name} | Carry1st Store`,
+//     //   description: `${product.description}`,
+//     //   images: product.imageLocation ? [product.imageLocation] : [],
+//     // },
+//   };
+// }
 
 async function Page({ params }: Props) {
   const product = await getProductById(params?.id);

@@ -1,16 +1,14 @@
+import { delay, handleResponseError } from "@/lib/util";
 import { IProduct } from "@/types";
-import { notFound } from "next/navigation";
 
 async function getProductById(id: string) {
-  const res = await fetch(`${process.env?.API_BASE_URL}/productBundles/${id}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(
+    `${process.env?.NEXT_PUBLIC_API_BASE_URL}/productBundles/${id}`,
+    { cache: "no-cache" }
+  );
+  await delay(2000);
   const products: IProduct = await res.json();
-  const is404Error = res?.status === 404;
-  if (!res?.ok) {
-    if (is404Error) notFound();
-    throw new Error(res?.status.toString());
-  }
+  handleResponseError(res);
   return products;
 }
 

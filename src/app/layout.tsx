@@ -7,7 +7,6 @@ import CartIcon from "@/features/cart/CartIcon";
 import CartContextProvider from "@/lib/context/CartContextProvider";
 import DrawerContext from "@/lib/context/DrawerContext";
 import PlusIcon from "@/features/product/PlusIcon";
-import { NextResponse } from "next/server";
 import QueryProvider from "@/lib/context/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,32 +23,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <QueryProvider>
-      <html lang="en">
-        <body
-          className={`${inter.className} bg-white flex flex-col min-h-screen`}
-        >
-          <CartContextProvider>
-            <DrawerContext>
-              <header className="border-b-2 sticky top-0 bg-white z-30">
-                <Container className="lg:py-4 py-3 flex justify-between items-center">
-                  <Link href={"/"} className="font-semibold text-lg md:text-xl">
-                    E-commerce
-                  </Link>
-                  <div className="flex items-center gap-6">
-                    <PlusIcon />
-                    <CartIcon />
-                  </div>
-                </Container>
-              </header>
-              <Container className="py-5 relative w-full flex-1">
-                {children}
+    <html lang="en">
+      <body
+        className={`${inter.className} bg-white flex flex-col min-h-screen`}
+      >
+        <CartContextProvider>
+          <DrawerContext>
+            <header className="border-b-2 sticky top-0 bg-white z-30">
+              <Container className="lg:py-4 py-3 flex justify-between items-center">
+                <Link href={"/"} className="font-semibold text-lg md:text-xl">
+                  E-commerce
+                </Link>
+                <div className="flex items-center gap-6">
+                  <PlusIcon />
+                  <CartIcon />
+                </div>
               </Container>
-            </DrawerContext>
-          </CartContextProvider>
-        </body>
-      </html>
-    </QueryProvider>
+            </header>
+            <Container className="py-5 relative w-full flex-1">
+              {children}
+            </Container>
+          </DrawerContext>
+        </CartContextProvider>
+      </body>
+    </html>
   );
 }
 

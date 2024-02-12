@@ -1,5 +1,5 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    readonly api: string;
+    readonly NEXT_PUBLIC_API_BASE_URL: string;
   }
 }

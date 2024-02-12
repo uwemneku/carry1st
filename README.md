@@ -19,7 +19,7 @@ yarn install
 #### Create an .env.local
 
 ```txt
-API_BASE_URL=https://my-json-server.typicode.com/carry1stdeveloper/mock-product-api
+NEXT_PUBLIC_API_BASE_URL=https://my-json-server.typicode.com/carry1stdeveloper/mock-product-api
 
 ```
 
