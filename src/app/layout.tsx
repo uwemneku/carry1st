@@ -31,10 +31,7 @@ export default function RootLayout({
             <DrawerContext>
               <header className="border-b-2 sticky top-0 bg-white z-30">
                 <Container className="lg:py-4 py-3 flex justify-between items-center">
-                  <Link
-                    href={"/home"}
-                    className="font-semibold text-lg md:text-xl"
-                  >
+                  <Link href={"/"} className="font-semibold text-lg md:text-xl">
                     E-commerce
                   </Link>
                   <div className="flex items-center gap-6">

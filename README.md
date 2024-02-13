@@ -1,4 +1,6 @@
-This is a simple E-commerce app built with Next js
+This is a simple E-commerce app built with Next js.
+Manage Your Cart and Upload Products
+
 <br />
 
 - [Getting Started](#getting-started)
