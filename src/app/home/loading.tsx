@@ -1,3 +1,4 @@
+"use client";
 import Skeleton from "@/components/util/Skeleton";
 import { MotionDiv } from "@/components/util/motion";
 import React from "react";

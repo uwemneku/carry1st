@@ -30,7 +30,11 @@ async function Page({ params }: Props) {
 
   return (
     <MotionDiv className="flex flex-col md:flex-row gap-2 md:gap-10">
-      <MotionDiv className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group z-10">
+      <MotionDiv
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group z-10"
+      >
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">
           <Image
             alt={product?.name}
@@ -44,7 +48,7 @@ async function Page({ params }: Props) {
       <MotionDiv
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", staggerChildren: 0.5 }}
+        transition={{ type: "spring", delay: 0.2 }}
         className="flex flex-col gap-8 flex-[0.5] md:py-5 bg-white rounded-md p-4"
       >
         <div className="">
