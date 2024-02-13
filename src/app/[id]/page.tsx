@@ -11,7 +11,7 @@ type Props = PageProps<{ id: string }>;
 
 export async function generateStaticParams() {
   const allProduct = await getAllProduct();
-  const initialProducts = allProduct.slice(0, 5); //Generate only the first 5 at build time
+  const initialProducts = allProduct.slice(0, 10); //Generate only the first 10 at build time
   return initialProducts.map((product) => ({
     id: product.id?.toString(),
   }));

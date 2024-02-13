@@ -21,6 +21,8 @@ This is a simple E-commerce app built with Next js
 
 ## Getting Started
 
+`For Next.js, Node.js version >= v18.17.0 is needed to run this project`
+
 #### Clone this repository
 
 ```bash
