@@ -23,8 +23,8 @@ const FormInput = <T extends FieldValues>({
     <Component
       isError={Boolean(fieldState.error?.message)}
       helperText={fieldState.error?.message}
-      {...props}
       {...field}
+      {...props}
     />
   );
 };

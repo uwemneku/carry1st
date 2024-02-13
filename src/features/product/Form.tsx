@@ -1,6 +1,7 @@
 "use client";
 
 import FormInput from "@/components/Input/FormInput";
+import ImageInput from "@/components/Input/ImageInput";
 import Button from "@/components/button";
 import { MotionDiv, MotionP } from "@/components/util/motion";
 import {
@@ -21,11 +22,14 @@ function ProductForm() {
     control,
     handleSubmit,
     reset: resetFields,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(productFormValidation),
   });
   const hasRevalidatedPage = useRef(false);
+
+  const buttonLabel = isLoading ? "Uploading Product" : "Add Product";
 
   const inputProps = (
     name: keyof ProductFormValues
@@ -36,11 +40,12 @@ function ProductForm() {
     height: errors?.[name]?.message,
   });
 
-  const resetForm = () => {
-    reset();
-    resetFields();
-    hasRevalidatedPage.current = false;
-  };
+  if (data?.id && !hasRevalidatedPage?.current) {
+    // generate product details page on server
+    const serverAction = revalidateProductPage.bind(null, data?.id);
+    serverAction();
+    hasRevalidatedPage.current = true;
+  }
 
   const uploadProduct = async (value: ProductFormValues) => {
     await createProduct({
@@ -51,14 +56,15 @@ function ProductForm() {
     });
   };
 
-  const buttonLabel = isLoading ? "Uploading Product" : "Add Product";
+  const resetForm = () => {
+    reset();
+    resetFields();
+    hasRevalidatedPage.current = false;
+  };
 
-  if (data?.id && !hasRevalidatedPage?.current) {
-    // generate product details page on server
-    const serverAction = revalidateProductPage.bind(null, data?.id);
-    serverAction();
-    hasRevalidatedPage.current = true;
-  }
+  const handleImageInput = (url?: string) => {
+    setValue("imageLocation", url || "");
+  };
 
   if (data?.id) {
     return (
@@ -87,7 +93,12 @@ function ProductForm() {
         isTextArea
         label="Description"
       />
-      <FormInput {...inputProps("imageLocation")} label="Image" type="file" />
+      <ImageInput
+        {...inputProps("imageLocation")}
+        label="Image"
+        onDelete={handleImageInput}
+        onUpload={handleImageInput}
+      />
       <FormInput {...inputProps("price")} label="Price" />
       <FormInput {...inputProps("quantity")} label="Quantity" type="number" />
       {isError && (
