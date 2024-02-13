@@ -97,6 +97,7 @@ This project makes use of next js app router for performance and SEO optimizatio
 
 - All pages are statically generated
 - When uploading products, the default current is `USD` and a status of `ACTIVE` is given to the product
+- A mock api was created to upload images. it returns a default image url
 
 Currently there is a bug where `generateMetaData` causes the app to freeze between pages transitions when viewing a product details page for the first time.
 
