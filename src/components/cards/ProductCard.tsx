@@ -19,11 +19,7 @@ function ProductCard({
 }: Props) {
   return (
     <MotionDiv className="grid p-2 rounded-md border-2 max-w-[220px] ">
-      <MotionDiv
-        layoutId={id?.toString()}
-        className="relative rounded-md bg-[#f3f4f6] p-6 z-10"
-        layout="preserve-aspect"
-      >
+      <MotionDiv className="relative rounded-md bg-[#f3f4f6] p-6 z-10">
         <ImageContainer>
           <Image
             alt={name}

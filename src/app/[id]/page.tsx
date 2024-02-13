@@ -30,11 +30,7 @@ async function Page({ params }: Props) {
 
   return (
     <MotionDiv className="flex flex-col md:flex-row gap-2 md:gap-10">
-      <MotionDiv
-        layoutId={params?.id?.toString()}
-        className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group z-10"
-        layout="preserve-aspect"
-      >
+      <MotionDiv className="bg-[#f3f4f6] rounded-md relative md:flex-1 h-screen max-h-[300px] md:max-h-[600px] flex justify-end items-center group z-10">
         <MotionDiv className="relative min-h-[310px] w-full group-hover:scale-105 transition-transform">
           <Image
             alt={product?.name}
