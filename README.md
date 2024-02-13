@@ -12,6 +12,7 @@ This is a simple E-commerce app built with Next js
   - [Vercel](#vercel)
   - [Other hosting platform](#other-hosting-platform)
 - [Assumptions and Known Issues](#assumptions-and-known-issues)
+- [Optimization](#optimization)
 - [Dependencies](#dependencies)
   - [Animation](#animation)
   - [Forms](#forms)
@@ -105,6 +106,11 @@ Currently there is a bug where `generateMetaData` causes the app to freeze betwe
 - [#50104](https://github.com/vercel/next.js/discussions/50104)
 
 A temporary fix is to open the product details page immediately after uploading a new product, this generates the metadata and ensures the first user to view that page does not experience this issue
+
+## Optimization
+
+- Components like [CartItemCard]("src/components/cards/CartItemCard/index.tsx") and [ProductCard]("src/components/cards/ProductCard.tsx") are memorized to reduce rerender
+- Where applicable callback functions are wrapped in useCallback to prevent the rerender of components that use them as prop.  
 
 ## Dependencies
 
